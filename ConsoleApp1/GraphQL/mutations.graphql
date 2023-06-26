@@ -1,0 +1,19 @@
+mutation mutationOneTest {
+  testMutation {
+    parent {
+      someValue
+    }
+  }
+}
+
+mutation mutationOne {
+  testMutation {
+    ... on MutationResultVariantB {
+      parent {
+        ... on ParentVariant {
+          someValue
+        }
+      }
+    }
+  }
+}

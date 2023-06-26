@@ -1,0 +1,33 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  testQuery(): MutationResult!
+}
+
+type Mutation {
+  testMutation(): MutationResult!
+}
+
+interface MutationResult {
+  parent: ParentType!
+}
+
+interface ParentType {
+  someValue: Int!
+}
+
+type MutationResultVariantA implements MutationResult {
+  parent: ParentType!
+}
+
+type MutationResultVariantB implements MutationResult {
+  parent: ParentVariant!
+}
+
+type ParentVariant implements ParentType {
+  someValue: Int!
+}
+
